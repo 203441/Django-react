@@ -1,5 +1,4 @@
 body{
-    background: url(../img/fondo.png);
     margin: 0;
     padding: 0;
     background: #282c34;
@@ -33,8 +32,6 @@ body{
     box-sizing: border-box;
 }
 
-
-
 .contLogin button{
     position: absolute;
     width: 128px;
@@ -54,7 +51,7 @@ body{
     position: absolute;
     width: 353px;
     height: 550px;
-    background: radial-gradient(71.63% 72.21% at 75.07% 28.37%, #9FE8FF 0%, #FAE8F6 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    background: radial-gradient(71.63% 72.21% at 75.07% 28.37%, #9FE8FF 0%, #FAE8F6 100%);
     box-shadow: 4px 7px 11px 2px rgba(0, 0, 0, 0.25);
     top: 25% !important;
     left: 40%;
@@ -97,7 +94,7 @@ body{
 .container{
     position: absolute;
     width: 700px;
-    height: auto;
+    height: 600px;
     background: radial-gradient(71.63% 72.21% at 69.69% 28.37%, #9FE8FF 0%, #FAE8F6 100%);
     box-shadow: 4px 7px 11px rgba(0, 0, 0, 0.25);
     top: 4% !important;
@@ -105,43 +102,45 @@ body{
     border-radius: 20px;
     box-sizing: border-box;
     padding: 50px 30px;
-  }
+}
 
-  .functionalities button{
+.functionalities button{
     position: absolute;
     width: 150px;
     height: 25px;
     background: #FFFFFF;
     border-radius: 8px;
     margin-top: 25px;
+}
+
+.functionalities .delete{
+    margin-left: 300px;
   }
 
-  .functionalities .delete{
-      margin-left: 300px;
-  }
-
-  .functionalities .add{
+.functionalities .add{
     margin-left: 35px;
 }
 
-.functionalities .btnCe1{
-    margin-left: 450px;
+.functionalities .update{
+    margin-left: 400px;
 }
 
-.functionalities .update{
-    margin-left: 200px;
+.functionalities .act{
+    margin-left: 135px;
 }
 
 .image{
-    position: absolute;
-    width: 227px;
-    height: 227px;
-    background: #FFFFFF;
-    position: absolute;
     border-radius: 100%;
-    display: block;
+    width: 220px;
+    height: 220px;
+}
+
+.image img{
     position: relative;
-    margin-left: 200px;
+    left: 135px;
+    height: 210px;
+    min-height: 100%;
+    clip-path: circle(at center);
 }
   
 .profile h1{
@@ -152,21 +151,18 @@ body{
 }
   
 .profile input{
-    width: 25%;
-    margin-bottom: 20px;
-}
-  
-.profile input[type="text"],
-.profile input[type="email"]{
-    margin-top: 10px;
-    border: none;
-    border-bottom: 1px solid #fff;
+    margin-top: 30px;
+    border:rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid #D1DBFF;
     background: transparent;
     outline: none;
-    height: 40px;
+    width: 100px;
+    height: auto;
     color: black;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    
 }
-  
+
+#first_nameP{
+    margin-left: 20px;
+}
   

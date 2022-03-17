@@ -17,7 +17,7 @@ export default function Profiles(){
                 'Authorization': 'Token '+localStorage.getItem('token')
             },
         }).then(response=>{
-            setUrl('http://localhost:8000/api/v1/'+response.data['name_img'])
+            setUrl('http://localhost:8000/api/v1'+response.data['name_img'])
         }).catch(()=>{
             setUrl('https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg')
         })
@@ -32,36 +32,38 @@ export default function Profiles(){
                 'Authorization': 'Token '+localStorage.getItem('token'),
             },
         }).then(()=>{
-            
+            setImage(null)
             get_image()
         }).catch(error=>{
-            console.log(error)
+            alert('Agrega una imagen para enviar')
         })
     }
 
     let put_image = ()=>{
         let data = new FormData();
         data.append('name_img',image)
-        axios.put('http://localhost:8000/image/'+localStorage.getItem('id_user')+'/',data,{
+        axios.put('http://localhost:8000/api/image/'+localStorage.getItem('id_user')+'/',data,{
             headers: {
                 'Content-type':'multipart/form-data',
                 'Authorization': 'Token '+localStorage.getItem('token'),
             },
         }).then((response)=>{
-            
+            setImage(null)
             get_image()
+        }).catch(error=>{
+            alert('Agrega una imagen para enviar')
         })
     }
 
     let delete_Img = ()=>{
-        axios.delete('http://localhost:8000/image/'+localStorage.getItem('id_user')+'/',{
+        axios.delete('http://localhost:8000/api/image/'+localStorage.getItem('id_user')+'/',{
             headers: {
                 'Authorization': 'Token '+localStorage.getItem('token'),
             },
         }).then(()=>{
             get_image()
         }).catch(e=>{
-            alert('inserta una imagen para eliminar')
+            alert('Inserta una imagen para eliminar')
         })
     }
 
@@ -77,7 +79,6 @@ export default function Profiles(){
                 'Authorization': 'Token '+localStorage.getItem('token'),
             },
         }).then(response=>{
-            
             localStorage.setItem('username',response.data['username']);
             localStorage.setItem('first_name',response.data['first_name']);
             localStorage.setItem('last_name', response.data['last_name']);
@@ -92,7 +93,6 @@ export default function Profiles(){
             document.getElementById('emailP').placeholder=localStorage.getItem('email')
         })
     }
-
     return (
         <div className="container profile">
             <div className="image">
@@ -107,12 +107,13 @@ export default function Profiles(){
                         }else{
                             post_image()
                         }
+                    }else{
+                        alert('Agrega una imagen para enviar')
                     }
                 }}>Agregar</button>
                 <button className="delete" onClick={()=>{
                     delete_Img()
                 }}>Eliminar</button>
-
                 <div className="inputs">
                     <input id="usernameP" type={'text'} placeholder={localStorage.getItem('username')} />
                     <input id="emailP" type={'text'} placeholder={localStorage.getItem('email')} />
@@ -122,7 +123,7 @@ export default function Profiles(){
                 <button className="update" onClick={()=>{
                     setDatos()
                 }}>Actualizar datos</button>
-                <button className="btnCe1" onClick={()=>{
+                <button className="act" onClick={()=>{
                             localStorage.clear()
                             setLog(true)
                         }} >Cerrar Sesión</button>
